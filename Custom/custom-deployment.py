@@ -88,13 +88,21 @@ else:
 
 configmapvolume=bool(int(input("Do you want to create configmap volume (True/False): ")))
 if configmapvolume==True:
-    confimapcount=int(input("Enter the configmap count: "))
+    #confimapcount=int(input("Enter the configmap count: "))
     configvolumename=input("Enter the configmap volume name: ")
     configmapname=input("Enter the configmap name: ")
-    data['spec']['template']['spec']['volumes'].append({"name":f"{configvolumename}","configMap": {"claimName":f"{configmapname}"}})
+    data['spec']['template']['spec']['volumes'].append({"name":f"{configvolumename}","configMap": {"name":f"{configmapname}"}})
 else:
     pass
 
+secretvolume=bool(int(input("Dp you want to create secret as volume: ")))
+if secretvolume==True:
+    secretcount=int(input("Enter the secret count: "))
+    secretvolumename=input("Enter the secret volume name")
+    secretname=input("Enter the secrete name: ")
+    data['spec']['template']['spec']['volumes'].append({"name":f"{secretvolumename}","secret": {"secretName":f"{secretname}"}})
+else:
+    pass
 
 data['spec']['replicas']=replicas
 data['spec']['template']['spec']['containers'][0]['name']=container_name
