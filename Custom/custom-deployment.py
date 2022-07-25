@@ -1,5 +1,6 @@
 import json
 import yaml
+import os
 
 string='''{
     "apiVersion": "apps/v1",
@@ -134,3 +135,9 @@ with open('deployment.json','a') as f:
 
 with open("deployment.yaml", "w", encoding="utf-8") as o:
 	yaml.dump(data, o)
+
+# run=bool(int(input("Do you want to run the deployment file (True-/False-0) ? ")))
+# if run==True:
+#     os.system("kubectl apply -f deployment.yaml")
+# else:
+#     os.system("dir")
