@@ -2,7 +2,7 @@ import json
 
 from ruamel.yaml import YAML
 
-in_file = "volumeclaim.yaml"
+in_file = "storage.yaml"
 out_file = "json_out.json"
 
 yaml = YAML(typ="safe")

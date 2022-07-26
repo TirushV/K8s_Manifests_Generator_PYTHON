@@ -11,6 +11,7 @@ string='''
     },
     "spec": {
         "accessModes": [],
+        "storageClassName: {}
         "resources": {
             "requests": {
                 "storage": {}
@@ -25,12 +26,14 @@ print(data)
 
 name=input("Enter the name of the PersistentVolumeClaim: ")
 access=input("Enter the accessmode: ")
-storage=input("Define the storage: ")
+storage=input("Enter the storage class name:")
+capacity=input("Define the size/capacity: ")
 Labels=int(input("Enter the number of label (key,value) numbers: "))
 
 data['metadata']['name']=name
 data['spec']['accessModes'].append(access)
-data['spec']['resources']['requests']['storage']=storage
+data['spec']['resources']['requests']['storage']
+data['spec']['resources']['storageClassName']=storage
 
 for i in range(1,Labels+1):
     key=input(f"Enter the key {i}: ")
